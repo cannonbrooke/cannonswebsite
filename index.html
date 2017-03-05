@@ -268,25 +268,71 @@
     <section class="form">
     <div class="row">
     <div id="form" class="small-12 small-offset-0 medium-8 medium-offset-2 large-8 large-offset-2 columns">
-      <form id="myForm" method="post" data-abide="">
+      <form id="myForm" data-abide="ajax" action="mail.php" method="post">
+    <div class="contactform">
+        <div class="item item-pair">
+          <label for="name">Full Name
+            <input type="text" name="name" id="name" class="small-input cat_textbox" required   pattern="[a-zA-Z]+"  maxlength="255">
+             <small class="error small-input">Name is required and must be a string.</small>
+          </label>
+          <label for="email">Email Address
+            <input type="email" name="email" id="email" class="small-input cat_textbox" maxlength="255" required  >
+             <small class="error small-input">An email address is required.</small>
+          </label>
+        </div>
+        <div class="item">
+          <label>Comments</label>
+          <textarea  cols="10" name="message" id="message" rows="4" class="cat_listbox" required ></textarea>
+          <small class="error">Please enter your comments</small>
+        </div>
+        <div class="item">
+          <input class="button alert small" type="submit" value="Submit" id="catwebformbutton" name="btnSubmit">
+        </div>
+    </div>
+</form>
 
-          <h2 class="sub_title">Connect Directly</h2>
-          <!-- <label>Name</label> -->
-          <small class="error">Your full name is required.</small>
-          <input type="text" placeholder="Your Name" required="">
 
-          <!-- <label>Email</label> -->
-          <small class="error">An email address is required.</small>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+ $('#myForm').submit(function(e) {
+    //prevent default form submitting so it can run the ajax code first
+    e.preventDefault();
 
-          <input type="email" placeholder="username@address.com" required="">
+    $(this).on('valid', function() {    //if the form is valid then grab the values of these IDs (name, email, message)
+      var name = $("input#name").val();
+      var email = $("input#email").val();
+      var message = $("textarea#message").val();
 
-          <!-- <label>Your Message</label> -->
-          <small class="error">Got to enter something, silly :/</small>
-          <textarea placeholder="Enter your message here" required=""></textarea>
-          <center>
-          <input type="submit" class="small-11 small-centered nice blue radius button" value="Send Message">
-          </center>
-        </form>
+      //Data for reponse (store the values here)
+      var dataString = 'name=' + name +
+        '&email=' + email +
+        '&message=' + message;
+
+      //Begin Ajax call
+      $.ajax({
+        type: "POST",
+        url:"mail.php", //runs the php code
+        data: dataString, //stores the data to be passed
+        success: function(data){ // if success then generate the div and append the the following
+          $('.contactform').html("<div id='thanks'></div>");
+
+            $('#thanks').html("<br /><h4>Thanks!</h4>")
+            .append('<p><span style="font-size:1.5em;">Hey</span> <span class="fancy">'+ name +'</span>,<br />I&acute;ll get back to you as soon as I can</p>')
+            .hide()
+            .fadeIn(1500);
+        },
+        error: function(jqXHR, status, error){ //this is to check if there is any error
+            alert("status: " + status + " message: " + error);
+        }
+      }); //End Ajax call
+      //return false;
+    });
+  });
+</script>
+
+<!-- <script>
+    $(document).foundation('abide', 'events'); // this was originally before the above code, but that makes the javascript code runs twice before submitting. Moved after and that fixes it. Ask jason about this
+</script> -->
 
         <a class="logo2">
               <h1>CANNONBROOKE<span class="tld2">.com</span></h1>
@@ -307,6 +353,7 @@
     <script type="text/javascript" src="js/touchSwipe.min.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
     <script type="text/javascript" src="js/foundation.min.js"></script>
+    <script type="text/javascript" src="js/foundation/foundation.abide.js"></script>
     <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
     <script type="text/javascript" src="js/carouFredSel.js"></script>
     <script type="text/javascript" src="js/scrollTo.js"></script>
