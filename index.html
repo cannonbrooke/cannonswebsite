@@ -3,9 +3,12 @@
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
+
+    <meta name="Prospect research in Hawaii" content="Cannon Brooke prospect researcher">
+    <meta name="keywords" content="Research,Prospect Research,Data Analysis,consultant">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0"/>
-    <title>CANNON BROOKE</title>
+    <title>CANNON BROOKE.COM HAWAII PROSPECT RESEARCH</title>
 
     <!--    Stylesheet    -->
     <link rel="stylesheet" href="css/normalize.css" />
@@ -59,7 +62,7 @@
         <div class="row">
           <h1 class="mean_cap">technical research specialist</hA>
           <h2 class="sub_cap">making sense of data.</h2>
-          <a href="public/resume.pdf" target="_blank" class="btn_details"><span>my resume</span> <img src="img/btn_arrow.png" alt="" src="" class="arrow"></a>
+          <a href="#" target="_blank" class="btn_details"><span>my resume</span> <img src="img/btn_arrow.png" alt="" src="" class="arrow"></a>
         </div>
       </section>
       <!--    End Hero Caption    -->
@@ -84,10 +87,9 @@
           <h1 class="title">A little bit about me.</h1>
             <h2 class="sub_title">Hi, I’m Cannon! Currently the Associate Director of Development Research at Hawaii Pacific Health and a seasoned technical research specialist. With the combination of my unique skills marrying non-profit prospect research and data science, I deliver an illuminating perspective on fundraising and data.
             </h2>
-        <h2 class="sub_title">I believe in working smarter, not harder.</h2>
 
           <h2 class="sub_title">
-            Born in Washington State (a little North of Seattle) and ignoring the awkward teenage years in the middle there, I wound up in Honolulu after college and have become influenced by it. I’m an aspiring ukulelist, armchair philosopher, and intrigued by technology. My passion for all-things tech began early on and has stayed with me ever since.
+            Born a little North of Seattle and ignoring the awkward teenage years in the middle there, I wound up in Honolulu after college and have become influenced by it. I’m an aspiring ukulelist, armchair philosopher, and intrigued by technology. My passion for all-things tech began early on and has stayed with me ever since.
           </h2>
 
       </div>
@@ -231,9 +233,7 @@
         <span class="author">I <span class="strong">can</span> help.</span>
         I’m currently available for freelance work.</span>
         <br>
-        If you have a project that you want to get started, think you need my help with something or just want to say hey
-        <br>
-        - let's get in touch.
+        If you have a project that you want to get started or think you need my help with something - let's get in touch.
 
     </section>
     <!--  End Accolade Section  -->
@@ -268,77 +268,9 @@
       </center>
     </section>
 
-     <!-- Contact form begin -->
+    <script type="text/javascript" src="https://form.jotform.us/jsform/70778379226166"></script>
 
-    <section class="form">
-    <div class="row">
-    <div id="form" class="small-12 small-offset-0 medium-8 medium-offset-2 large-8 large-offset-2 columns">
-      <form id="myForm" data-abide="ajax" action="mail.php" method="post">
-    <div class="contactform">
-        <div class="item item-pair">
-          <label for="name">Full Name
-            <input type="text" name="name" id="name" class="small-input cat_textbox" required   pattern="[a-zA-Z]+"  maxlength="255">
-             <small class="error small-input">Name is required and must be a string.</small>
-          </label>
-          <label for="email">Email Address
-            <input type="email" name="email" id="email" class="small-input cat_textbox" maxlength="255" required  >
-             <small class="error small-input">An email address is required.</small>
-          </label>
-        </div>
-        <div class="item">
-          <label>Comments</label>
-          <textarea  cols="10" name="message" id="message" rows="4" class="cat_listbox" required ></textarea>
-          <small class="error">Please enter your comments</small>
-        </div>
-        <div class="item">
-          <input class="button alert small" type="submit" value="Submit" id="catwebformbutton" name="btnSubmit">
-        </div>
-    </div>
-</form>
-
-
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script>//remove http or will get insecure error?
- $('#myForm').submit(function(e) {
-    //prevent default form submitting so it can run the ajax code first
-    e.preventDefault();
-
-    $(this).on('valid', function() {    //if the form is valid then grab the values of these IDs (name, email, message)
-      var name = $("input#name").val();
-      var email = $("input#email").val();
-      var message = $("textarea#message").val();
-
-      //Data for reponse (store the values here)
-      var dataString = 'name=' + name +
-        '&email=' + email +
-        '&message=' + message;
-
-      //Begin Ajax call
-      $.ajax({
-        type: "POST",
-        url:"mail.php", //runs the php code
-        data: dataString, //stores the data to be passed
-        success: function(data){ // if success then generate the div and append the the following
-          $('.contactform').html("<div id='thanks'></div>");
-
-            $('#thanks').html("<br /><h4>Thanks!</h4>")
-            .append('<p><span style="font-size:1.5em;">Hey</span> <span class="fancy">'+ name +'</span>,<br />I&acute;ll get back to you as soon as I can</p>')
-            .hide()
-            .fadeIn(1500);
-        },
-        error: function(jqXHR, status, error){ //this is to check if there is any error
-            alert("status: " + status + " message: " + error);
-        }
-      }); //End Ajax call
-      //return false;
-    });
-  });
-</script>
-
-<!-- <script>
-    $(document).foundation('abide', 'events'); // this was originally before the above code, but that makes the javascript code runs twice before submitting. Moved after and that fixes it. Ask jason about this
-</script> -->
-
+        <center>
         <a class="logo2">
               <h1>CANNONBROOKE<span class="tld2">.com</span></h1>
             </a>
@@ -346,6 +278,7 @@
           </div>
     </div>
     </div>
+    </center>
 
 
     <!-- Contact form stop -->
